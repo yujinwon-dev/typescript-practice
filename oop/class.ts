@@ -1,8 +1,20 @@
 class Employee {
-  fullName = '';
+  private fullName = '';
   jobTitle = '';
   hourlyRate = 0.0;
   workingHoursPerWeek = 0;
+
+  constructor(
+    fullName: string,
+    jobTitle: string,
+    hourlyRate: number,
+    workingHoursPerWeek: number
+  ) {
+    this.fullName = fullName;
+    this.jobTitle = jobTitle;
+    this.hourlyRate = hourlyRate;
+    this.workingHoursPerWeek = workingHoursPerWeek;
+  }
 
   printEmployeeDetails = (): void => {
     // 클래스 안에서 정의된 함수(메서드)들은 클래스 내에 정의된 변수(프로퍼티)들에 접근 가능
@@ -14,13 +26,6 @@ class Employee {
   };
 }
 
-// 객체의 프로퍼티마다 각각 초기값을 넣어주는 방식
-// 코드가 복잡하고 가독성이 좋지 않음
-// 이때 사용할 수 있는 것이 생성자(Constructor)
-
-let employee1 = new Employee();
-employee1.fullName = '유진';
-employee1.jobTitle = '주니어 웹개발자';
-employee1.hourlyRate = 40;
-employee1.workingHoursPerWeek = 35;
+let employee1 = new Employee('유진', '주니어 웹 개발자', 40, 35);
+employee1.fullName = '민수';
 employee1.printEmployeeDetails();
