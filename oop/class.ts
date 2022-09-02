@@ -1,19 +1,18 @@
+// 길고 반복되는 매개변수
 class Employee {
-  private fullName = '';
-  jobTitle = '';
-  hourlyRate = 0.0;
-  workingHoursPerWeek = 0;
-
   constructor(
-    fullName: string,
-    jobTitle: string,
-    hourlyRate: number,
-    workingHoursPerWeek: number
-  ) {
-    this.fullName = fullName;
-    this.jobTitle = jobTitle;
-    this.hourlyRate = hourlyRate;
-    this.workingHoursPerWeek = workingHoursPerWeek;
+    private _fullName: string,
+    private _jobTitle: string,
+    private _hourlyRate: number,
+    public workingHoursPerWeek: number
+  ) {}
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  set fullName(value: string) {
+    this._fullName = value;
   }
 
   printEmployeeDetails = (): void => {
@@ -27,5 +26,6 @@ class Employee {
 }
 
 let employee1 = new Employee('유진', '주니어 웹 개발자', 40, 35);
+console.log(employee1.fullName);
 employee1.fullName = '민수';
 employee1.printEmployeeDetails();
